@@ -13,10 +13,6 @@ function Home() {
 
       <ScrollAnimation dir="frame1" fname="frame-000" size={150} className={css.fixed} />
 
-      <ScrollAnimation dir="frame1" fname="frame-000" size={150} className={css.fixed} />
-
-      <ScrollAnimation dir="frame1" fname="frame-000" size={150} className={css.fixed} />
-
       <Blank value={500} />
 
       <ScrollTrigger dir="frame2" fname="frame-000" size={150} FPS={60} className={css.frame2} 

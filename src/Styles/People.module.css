@@ -1,0 +1,130 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* People Scroll Bar */
+.barContainer {
+  background-color: black;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.barInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.selectedBio {
+  box-shadow: 0px 0px 30px 0px rgba(255,255,255,0.8);
+  opacity: 1;
+}
+
+/* NOTE: application of NOT selector */
+.barInner:hover > :not(.selectedBio) :not(:hover) {
+  opacity: 0.5;
+}
+
+.BioBlock {
+  width: 120px;
+  height: 360px;
+  margin: 0 6px 0 6px;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.BioBlock:hover {
+  opacity: 1;
+}
+
+.BioBlock > img {
+  width: 100%;
+  height: 100%;
+}
+
+.BioBlock > p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+
+  color: white;
+}
+
+/* Bio Description */
+.bioContainer {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.flex5 {
+  flex-basis: 41.67%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding-top: 75px;
+}
+
+.flex7 {
+  flex-basis: 58.33%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 100px 100px 0 30px;
+}
+
+.bioPhoto {
+  width: 300px;
+  height: auto;
+}
+
+.specialty {
+  font-size: 1.25em;
+}
+
+.desc {
+  font-size: 1.25em;
+}
+
+/* Nav Icon */
+.navContainer {
+  position: fixed;
+  top: 50px;
+  right: 80px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.left, .right, .up {
+  width: 50px;
+  height: 50px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.left {
+  background-color: red;
+}
+
+.right {
+  background-color: blue;
+}
+
+.up {
+  background-color: green;
+}
