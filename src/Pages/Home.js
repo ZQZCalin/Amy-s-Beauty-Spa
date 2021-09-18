@@ -1,12 +1,10 @@
 import ScrollAnimation from "../Components/ScrollAnimation";
 import ScrollTrigger from "../Components/ScrollTrigger";
-import Toolbar from "../Components/Toolbar";
 import css from "../Styles/Home.module.css";
 
 function Home() {
   return (
-    <div>
-      <Toolbar />
+    <div style={{position: "relative", top: "45px"}}>
       <h1> Home </h1>
 
       <Blank value={500} />
