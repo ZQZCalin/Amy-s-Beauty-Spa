@@ -18,27 +18,64 @@ function PeopleBar() {
     }, 100);
   };
 
+  // initialize rotation config
+  const _augPeoples = peoples.concat(peoples);
+  const n = _augPeoples.length;
+  const radius = 400;
+
+  const _rotation = (i) => {
+    const theta = i * 360/n;
+    const range = Math.ceil(n/4);
+    const hide = i < range || i > n-range;
+
+    return {
+      width: "120px",
+      height: "360px",
+      overflow: "hidden",
+      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.5)",
+
+      WebkitTransition: "opacity 1s, -webkit-transform 1s",
+      MozTransition: "opacity 1s, -moz-transform 1s",
+      transition: "opacity 1s, transform 1s",
+
+      position: "absolute",
+      bottom: 0,
+
+      WebkitTransform: `rotateY(${theta}deg) translateZ(${radius}px) scaleX(-1)`,
+      transform: `rotateY(${theta}deg) translateZ(${radius}px) scaleX(-1)`,
+
+      // display: hide && "none",
+      cursor: "pointer",
+    };
+  };
+
   return (
-    <div className={css.barContainer}>
-      <div className={css.barInner}>
-        {
-          peoples.map(people =>
-            <BioBlock name={people.name} imgUrl={people.avatarUrl} key={people.name}
-              _selected={people.name == selectedBlock.name} _handleClick={clickBlock}
-            />
-          )
-        }
+    <div className={css.container} >
+      <div className={css.outer} >
+        <div className={css.inner}>
+          {
+            _augPeoples.map((people, i) =>
+              <BioBlock name={people.name} imgUrl={people.avatarUrl} key={people.name}
+                _selected={people.name == selectedBlock.name} _handleClick={clickBlock}
+                _style={_rotation(i)}
+              />
+            )
+          }
+        </div>
       </div>
     </div>
   );
 }
 
 function BioBlock({
-  name, imgUrl, _selected = false, _handleClick
+  name, imgUrl, _selected = false, _handleClick, _style
 }) {
+
   return (
-    <div className={`${css.BioBlock} ${_selected && css.selectedBio}`}
-      onClick={() => { _handleClick(name) }}>
+    <div className={`${css.block} ${_selected && css.selectedBio}`}
+      onClick={() => { _handleClick(name) }}
+      style={_style}
+    >
       <img src={imgUrl} />
       <p>
         {parseFirstName(name)}

@@ -3,7 +3,9 @@ import css from "../Styles/Navbar.module.css";
 
 const SearchContext = createContext();
 
-function Search() {
+function Search(
+  focus, setFocus
+) {
 
   const [search, setSearch] = useState("");
 
